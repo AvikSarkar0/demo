@@ -1,12 +1,10 @@
-import pyttsx3
 import streamlit as st
-
-engine = pyttsx3.init()
-text = st.text_input('Enter some text')
-engine.say(text=text)
-engine.runAndWait()
+import pyjokes
 
 
-"""
-streamlit run main.py
-"""
+# text = st.text_input('Enter some text')
+if st.button('Hit me'):
+  joke = pyjokes.get_joke()
+  st.text(f"{joke}")
+
+
