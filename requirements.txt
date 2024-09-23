@@ -25,9 +25,9 @@ protobuf==5.28.2
 pyarrow==17.0.0
 pydeck==0.9.1
 Pygments==2.18.0
+pyjokes==0.8.3
 pypiwin32==223
 python-dateutil==2.9.0.post0
-pyttsx3==2.97
 pytz==2024.2
 pywin32==306
 referencing==0.35.1
