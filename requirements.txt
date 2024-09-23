@@ -1,3 +1,4 @@
 pyjokes
 streamlit
 pyttsx3
+gtts
