@@ -15,7 +15,7 @@
 import streamlit as st
 import pyjokes
 from gtts import gTTS
-from playsound import playsound
+import io
 
 if st.button('Hit me'):
     joke = pyjokes.get_joke()
@@ -23,7 +23,11 @@ if st.button('Hit me'):
 
     # Convert joke to speech using gTTS
     tts = gTTS(joke)
-    tts.save('joke.mp3')
+    
+    # Save to an in-memory file object
+    audio_file = io.BytesIO()
+    tts.write_to_fp(audio_file)
+    audio_file.seek(0)  # Move to the start of the file
 
-    # Play the saved MP3 file using playsound
-    playsound('joke.mp3')
+    # Play the audio in Streamlit using st.audio
+    st.audio(audio_file, format='audio/mp3')
