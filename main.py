@@ -12,11 +12,10 @@
 #   engine.say(joke)
 #   engine.runAndWait()
 
-
 import streamlit as st
 import pyjokes
 from gtts import gTTS
-import os
+from playsound import playsound
 
 if st.button('Hit me'):
     joke = pyjokes.get_joke()
@@ -25,4 +24,6 @@ if st.button('Hit me'):
     # Convert joke to speech using gTTS
     tts = gTTS(joke)
     tts.save('joke.mp3')
-    os.system('mpg123 joke.mp3')  # Play the saved MP3 file
+
+    # Play the saved MP3 file using playsound
+    playsound('joke.mp3')
